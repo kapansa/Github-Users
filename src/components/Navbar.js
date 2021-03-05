@@ -12,7 +12,7 @@ export default function Navbar() {
           Github Users
         </Link>
       </h1>
-      <div>
+      <div className="nav_items">
         <Link to="/">Home</Link>
         <Link
           to={{ pathname: "https://github.com/kapansa/Github-Users" }}

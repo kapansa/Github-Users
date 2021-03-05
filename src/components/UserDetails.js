@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, Fragment } from "react";
 import GithubContext from "../context/GithubContext";
 import ProfileImage from "./Profile_image";
 import UserBio from "./User_Bio";
@@ -8,7 +8,7 @@ import Loading from "./Loading";
 
 export default function UserDetails({ match }) {
   const githubContext = useContext(GithubContext);
-  const { GetUser, user, repos, GetRepos } = githubContext;
+  const { GetUser, user, repos, GetRepos, isLoading } = githubContext;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,8 +18,8 @@ export default function UserDetails({ match }) {
   }, []);
 
   return (
-    <div>
-      {user.length === 0 ? (
+    <Fragment>
+      {isLoading ? (
         <Loading />
       ) : (
         <div>
@@ -27,10 +27,9 @@ export default function UserDetails({ match }) {
             <ProfileImage user={user} />
             <UserBio user={user} />
           </div>
-
           <Repos repos={repos} />
         </div>
       )}
-    </div>
+    </Fragment>
   );
 }

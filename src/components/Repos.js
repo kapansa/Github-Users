@@ -7,7 +7,7 @@ export default function Repos(props) {
     <div className="all_repos">
       <h1>Recently Created Public Repos</h1>
       {props.repos.map((repo) => (
-        <p>
+        <p key={repo.id}>
           <Link to={{ pathname: repo.html_url }} target="_blank">
             {repo.name}
           </Link>

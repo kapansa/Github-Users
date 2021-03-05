@@ -1,18 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+:root {
+  --primary-color: #dc3545;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
-  color: #333;
+}
+
+.text-success {
+  color: var(--success-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
+  padding: 0 50px;
   background-color: rgb(37, 37, 228);
 }
 
@@ -24,8 +39,11 @@ body {
 .navbar a {
   color: white;
   text-decoration: none;
-  padding-left: 50px;
   font-size: 20px;
+}
+
+.nav_items a{
+  padding-left: 20px; 
 }
 
 .github_icon {
@@ -72,24 +90,23 @@ body {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .input_values {
-  padding: 0px 50px;
+  margin: 0 40px;
 }
 
-.input_values .alert{
-  display: flex;
-  align-items: center;
-}
-
-.input_values .alert p{
+.input_values .alert p {
   color: red;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }
 
 .input_values .btn-color {
   background-color: rgb(37, 37, 228);
   color: white;
+  padding: 30px;
 }
 
 .profile_image img {
@@ -124,8 +141,8 @@ body {
   font-weight: bold;
 }
 
-.bio a{
-  color:rgb(37, 37, 228);
+.bio a {
+  color: rgb(37, 37, 228);
 }
 
 .bio .bio_para {
@@ -136,10 +153,19 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .public_repos p {
   color: white;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }
 
 .public_repos .repos {
@@ -150,6 +176,20 @@ body {
 
 .public_repos .gists {
   background-color: rgb(214, 143, 11);
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.public_repos .following {
+  background-color: var(--dark-color);
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.public_repos .followers {
+  background-color: var(--success-color);
   padding: 10px;
   border-radius: 5px;
   margin-left: 20px;
@@ -168,14 +208,14 @@ body {
   text-decoration: underline;
 }
 
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.loading img{
+.loading img {
   width: 20%;
 }
 
@@ -184,71 +224,59 @@ body {
   font-size: 24px;
 }
 
-.aboutApp{
+.aboutApp {
   padding: 50px;
 }
 
-.aboutApp h1{
+.aboutApp h1 {
   font-size: 22px;
 }
 
-.input_values .btn{
+.input_values .btn {
   display: inline-block;
-  padding: 0.4rem 1.3rem;
+  padding: 0.8rem 1.3rem;
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
 }
 
-.input_values .btn-block{
+.input_values .btn-block {
   display: block;
   width: 100%;
 }
 
-.input_values .btn-light{
+.input_values .btn-light {
   background: rgba(233, 233, 233, 0.822);
   color: #333;
 }
 
-.input_values .alert{
-  padding: 0.7rem;
+.input_values .alert {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
   margin: 1rem 0;
   opacity: 0.9;
-  background: var(--light-color);
-  color: #333;
+  background: rgba(233, 233, 233, 0.822);
 }
 
 input {
   margin: 1.2rem 0;
 }
 
-.form-text {
-  display: block;
-  margin-top: 0.3rem;
-  color: #888;
-}
-
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='date'],
-select,
-textarea {
+.input_values input {
   display: block;
   width: 100%;
-  padding: 0.4rem;
+  padding: 0.8rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
 }
 
-input[type='submit'],
+input[type="submit"],
 button {
   font: inherit;
 }
-
 
 @media screen and (max-width: 1000px) {
   .profile_image img {
@@ -258,12 +286,29 @@ button {
 
   .user_details {
     padding: 50px;
-    margin: 0 20px;
+    margin: 30px 20px;
     flex-wrap: wrap;
   }
 
   .all_repos {
     padding: 50px;
     margin: 30px 20px;
+  }
+
+  .public_repos p{
+    margin-bottom: 20px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding: 20px 20px;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding-left: 0px;
+    padding-right: 20px;
+    font-size: 20px;
   }
 }

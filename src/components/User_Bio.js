@@ -7,6 +7,7 @@ export default function User_Bio(props) {
     bio,
     company,
     blog,
+    html_url,
     location,
     following,
     followers,
@@ -26,13 +27,10 @@ export default function User_Bio(props) {
           <span>Blog</span>: <Link to={{ pathname: blog }} target="_blank">{blog}</Link>
         </p>
         <p>
+          <span>Github Account</span>: <Link to={{ pathname: html_url }} target="_blank">{html_url}</Link>
+        </p>
+        <p>
           <span>Location</span>: {location}
-        </p>
-        <p>
-          <span>following</span>: {following}
-        </p>
-        <p>
-          <span>followers</span>: {followers}
         </p>
         <p>
           <span>Hirable</span>:{" "}
@@ -49,6 +47,12 @@ export default function User_Bio(props) {
           </p>
           <p className="gists">
             <span>Public_gists</span>: {public_gists}
+          </p>
+          <p className="following">
+            <span>following</span>: {following}
+          </p>
+          <p className="followers">
+            <span>followers</span>: {followers}
           </p>
         </div>
       </div>

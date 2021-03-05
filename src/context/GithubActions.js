@@ -7,6 +7,7 @@ import {
   GET_REPOS,
   CLEAR_USER,
   CLEAR_USERS,
+  ISLOADING,
 } from "./Types";
 import axios from "axios";
 
@@ -15,25 +16,29 @@ function GithubProvider(props) {
     users: [],
     user: [],
     repos: [],
-    didSearch: false,
+    isLoading: false,
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
   const GetUsers = async (username) => {
+    setLoading();
     const res = await axios.get(
       `https://api.github.com/search/users?q=${username}&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`
     );
 
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
+    setLoading();
   };
 
   const GetUser = async (username) => {
+    setLoading();
     const res = await axios.get(
       `https://api.github.com/users/${username}?client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`
     );
 
     dispatch({ type: SEARCH_USER, payload: res.data });
+    setLoading();
   };
 
   const GetRepos = async (username) => {
@@ -52,12 +57,17 @@ function GithubProvider(props) {
     dispatch({ type: CLEAR_USERS });
   };
 
+  const setLoading = () => {
+    dispatch({ type: ISLOADING });
+  };
+
   return (
     <GithubContext.Provider
       value={{
         users: state.users,
         user: state.user,
         repos: state.repos,
+        isLoading: state.isLoading,
         GetUsers,
         GetUser,
         GetRepos,
