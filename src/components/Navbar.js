@@ -14,8 +14,13 @@ export default function Navbar() {
       </h1>
       <div>
         <Link to="/">Home</Link>
-        <Link to="/">About App</Link>
-        <Link to="/">About Me</Link>
+        <Link
+          to={{ pathname: "https://github.com/kapansa/Github-Users" }}
+          target="_blank"
+        >
+          Github Repo
+        </Link>
+        <Link to="/about">About App</Link>
       </div>
     </div>
   );

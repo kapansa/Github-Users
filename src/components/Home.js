@@ -5,7 +5,7 @@ import User from "./User";
 
 function Home() {
   const githubContext = useContext(GithubContext);
-  const { users, ClearUser } = githubContext;
+  const { users, ClearUser} = githubContext;
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -15,6 +15,7 @@ function GithubProvider(props) {
     users: [],
     user: [],
     repos: [],
+    didSearch: false,
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);

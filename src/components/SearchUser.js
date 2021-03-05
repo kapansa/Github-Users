@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import GithubContext from "../context/GithubContext";
 import InfoIcon from '@material-ui/icons/Info';
 import "./styles.css";
-import "./Search.css";
 
 export default function SearchUser() {
   const githubContext = useContext(GithubContext);

@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 export default function User_Bio(props) {
   const {
@@ -22,7 +23,7 @@ export default function User_Bio(props) {
           <span>Company</span>: {company}
         </p>
         <p>
-          <span>Blog</span>: {blog}
+          <span>Blog</span>: <Link to={{ pathname: blog }} target="_blank">{blog}</Link>
         </p>
         <p>
           <span>Location</span>: {location}

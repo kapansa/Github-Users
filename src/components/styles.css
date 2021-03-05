@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -99,7 +109,7 @@
   background-color: white;
   box-shadow: 0px 10px 50px #3a3a3a25;
   padding: 50px;
-  margin: 0 100px;
+  margin: 30px 100px;
 }
 
 .bio p {
@@ -114,15 +124,18 @@
   font-weight: bold;
 }
 
+.bio a{
+  color:rgb(37, 37, 228);
+}
+
 .bio .bio_para {
-  max-width: 70%;
+  max-width: 80%;
 }
 
 .public_repos {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 30px;
 }
 
 .public_repos p {
@@ -170,6 +183,72 @@
   padding-bottom: 20px;
   font-size: 24px;
 }
+
+.aboutApp{
+  padding: 50px;
+}
+
+.aboutApp h1{
+  font-size: 22px;
+}
+
+.input_values .btn{
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+.input_values .btn-block{
+  display: block;
+  width: 100%;
+}
+
+.input_values .btn-light{
+  background: rgba(233, 233, 233, 0.822);
+  color: #333;
+}
+
+.input_values .alert{
+  padding: 0.7rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: var(--light-color);
+  color: #333;
+}
+
+input {
+  margin: 1.2rem 0;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+input[type='submit'],
+button {
+  font: inherit;
+}
+
 
 @media screen and (max-width: 1000px) {
   .profile_image img {
