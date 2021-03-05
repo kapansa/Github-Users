@@ -1,57 +1,190 @@
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 100px;
-    background-color: rgb(37, 37, 228);
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  background-color: rgb(37, 37, 228);
 }
 
-.navbar h1{
-    color: white;
+.navbar h1 a {
+  color: white;
+  font-size: 26px;
 }
 
-.navbar a{
-    color: white;
-    text-decoration: none;
-    padding-left: 50px;
-    font-size: 20px;
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding-left: 50px;
+  font-size: 20px;
 }
 
-.github_icon{
-    padding-right: 10px;
+.github_icon {
+  margin-right: 10px;
 }
 
-.user{
-    background-color: white;
-    text-align: center;
-    box-shadow: 0px 10px 50px #3a3a3a25;
-    width: 300px;
-    border-radius: 5px;
-    padding: 60px 20px; 
-    margin: 10px;
+.user {
+  background-color: white;
+  text-align: center;
+  box-shadow: 0px 10px 50px #3a3a3a25;
+  width: 300px;
+  border-radius: 5px;
+  padding: 60px 20px;
+  margin: 10px;
 }
 
-.user img{
-    width: 120px;
-    border-radius: 100%;
+.user img {
+  width: 120px;
+  border-radius: 100%;
 }
 
-.user h1{
-    font-size: 22px;
+.user h1 {
+  font-size: 22px;
 }
 
-.user .user_btn{
-    background-color: rgb(37, 37, 228);
-    color: white;
+.user .user_btn {
+  background-color: rgb(37, 37, 228);
+  color: white;
+  margin-top: 10px;
 }
 
-.user .user_btn:hover{
-    background-color: rgb(36, 36, 173);
+.user .user_btn a {
+  text-decoration: none;
+  color: white;
 }
 
-.Home{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.user .user_btn:hover {
+  background-color: rgb(36, 36, 173);
+}
+
+.Home {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.input_values {
+  padding: 0px 50px;
+}
+
+.input_values .alert{
+  display: flex;
+  align-items: center;
+}
+
+.input_values .alert p{
+  color: red;
+}
+
+.input_values .btn-color {
+  background-color: rgb(37, 37, 228);
+  color: white;
+}
+
+.profile_image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+}
+
+.profile_image {
+  text-align: center;
+}
+
+.user_details {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 10px 50px #3a3a3a25;
+  padding: 50px;
+  margin: 0 100px;
+}
+
+.bio p {
+  padding: 3px 0;
+}
+
+.bio {
+  margin-left: 10%;
+}
+
+.bio span {
+  font-weight: bold;
+}
+
+.bio .bio_para {
+  max-width: 70%;
+}
+
+.public_repos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.public_repos p {
+  color: white;
+}
+
+.public_repos .repos {
+  background-color: rgb(37, 37, 228);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.public_repos .gists {
+  background-color: rgb(214, 143, 11);
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.all_repos {
+  background-color: white;
+  box-shadow: 0px 10px 50px #3a3a3a25;
+  padding: 50px;
+  margin: 30px 100px;
+}
+
+.all_repos a {
+  font-size: 22px;
+  color: rgb(37, 37, 228);
+  text-decoration: underline;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.loading img{
+  width: 20%;
+}
+
+.all_repos h1 {
+  padding-bottom: 20px;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1000px) {
+  .profile_image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .user_details {
+    padding: 50px;
+    margin: 0 20px;
     flex-wrap: wrap;
+  }
+
+  .all_repos {
+    padding: 50px;
+    margin: 30px 20px;
+  }
 }

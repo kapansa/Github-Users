@@ -7,8 +7,10 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <h1>
-        <GitHubIcon className="github_icon"/>
-        Github Users
+        <Link to="/">
+          <GitHubIcon className="github_icon" />
+          Github Users
+        </Link>
       </h1>
       <div>
         <Link to="/">Home</Link>
