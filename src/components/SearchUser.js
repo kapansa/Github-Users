@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import GithubContext from "../context/GithubContext";
-import InfoIcon from '@material-ui/icons/Info';
+import InfoIcon from "@material-ui/icons/Info";
 import "./styles.css";
 
 export default function SearchUser() {
@@ -17,12 +17,13 @@ export default function SearchUser() {
     e.preventDefault();
     if (text === "") {
       setIsValid(true);
+      setTimeout(() => {
+        setIsValid(false);
+      }, 2000);
+    } else {
+      GetUsers(text);
+      setText("");
     }
-    setTimeout(() => {
-      setIsValid(false);
-    }, 2000);
-    GetUsers(text);
-    setText("");
   };
 
   return (
@@ -30,7 +31,8 @@ export default function SearchUser() {
       <form onSubmit={onSubmit} className="form">
         {isValid === true && (
           <div className="alert">
-            <InfoIcon /><p>Please enter a username.</p>
+            <InfoIcon />
+            <p>Please enter a username.</p>
           </div>
         )}
         <input

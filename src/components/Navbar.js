@@ -20,7 +20,7 @@ export default function Navbar() {
         >
           Github Repo
         </Link>
-        <Link to="/about">About App</Link>
+        <Link to="/about">About Site</Link>
       </div>
     </div>
   );

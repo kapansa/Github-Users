@@ -11,6 +11,17 @@ import {
 } from "./Types";
 import axios from "axios";
 
+let clientId;
+let clientSecret;
+
+if (process.env.NODE_ENV !== "production") {
+  clientId = process.env.CLIENT_ID;
+  clientSecret = process.env.CLIENT_SECRET;
+} else {
+  clientId = process.env.APP_CLIENT_ID;
+  clientSecret = process.env.APP_CLIENT_SECRET;
+}
+
 function GithubProvider(props) {
   const initialState = {
     users: [],
@@ -24,7 +35,7 @@ function GithubProvider(props) {
   const GetUsers = async (username) => {
     setLoading();
     const res = await axios.get(
-      `https://api.github.com/search/users?q=${username}&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`
+      `https://api.github.com/search/users?q=${username}&client_id=${clientId}&client_secret=${clientSecret}`
     );
 
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
@@ -34,7 +45,7 @@ function GithubProvider(props) {
   const GetUser = async (username) => {
     setLoading();
     const res = await axios.get(
-      `https://api.github.com/users/${username}?client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`
+      `https://api.github.com/users/${username}?client_id=${clientId}&client_secret=${clientSecret}`
     );
 
     dispatch({ type: SEARCH_USER, payload: res.data });
@@ -43,7 +54,7 @@ function GithubProvider(props) {
 
   const GetRepos = async (username) => {
     const res = await axios.get(
-      `https://api.github.com/users/${username}/repos?per_page=10&sort=created:asc&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`
+      `https://api.github.com/users/${username}/repos?per_page=10&sort=created:asc&client_id=${clientId}&client_secret=${clientSecret}`
     );
 
     dispatch({ type: GET_REPOS, payload: res.data });
