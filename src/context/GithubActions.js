@@ -40,11 +40,10 @@ function GithubProvider(props) {
   const GetUsers = async (username) => {
     setLoading();
     const res = await axios.get(
-      `https://api.github.com/search/users?q=${username}&client_id=${clientId}&client_secret=${clientSecret}`
+      `https://api.github.com/search/users?q=${username}&per_page=100&client_id=${clientId}&client_secret=${clientSecret}`
     );
 
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
-    setLoading();
   };
 
   const GetUser = async (username) => {
@@ -54,7 +53,6 @@ function GithubProvider(props) {
     );
 
     dispatch({ type: SEARCH_USER, payload: res.data });
-    setLoading();
   };
 
   const GetRepos = async (username) => {
@@ -67,7 +65,7 @@ function GithubProvider(props) {
 
   const SetFollowing = async (login) => {
     const res = await axios.get(
-      `https://api.github.com/users/${login}/following?client_id=${clientId}&client_secret=${clientSecret}`
+      `https://api.github.com/users/${login}/following?per_page=100&client_id=${clientId}&client_secret=${clientSecret}`
     );
 
     dispatch({ type: SET_FOLLOWING, payload: res.data });
@@ -75,7 +73,7 @@ function GithubProvider(props) {
 
   const SetFollowers = async (login) => {
     const res = await axios.get(
-      `https://api.github.com/users/${login}/followers?client_id=${clientId}&client_secret=${clientSecret}`
+      `https://api.github.com/users/${login}/followers?per_page=100&client_id=${clientId}&client_secret=${clientSecret}`
     );
 
     dispatch({ type: SET_FOLLOWERS, payload: res.data });

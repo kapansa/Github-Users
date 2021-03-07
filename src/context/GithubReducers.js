@@ -16,11 +16,13 @@ const GithubReducer = (state, action) => {
       return {
         ...state,
         users: action.payload,
+        isLoading: false
       };
     case SEARCH_USER:
       return {
         ...state,
         user: action.payload,
+        isLoading: false
       };
     case SET_FOLLOWING:
       return {
@@ -41,6 +43,7 @@ const GithubReducer = (state, action) => {
       return {
         ...state,
         user: {},
+        isLoading: false,
       };
     case CLEAR_USERS:
       return {
@@ -50,7 +53,7 @@ const GithubReducer = (state, action) => {
     case ISLOADING:
       return {
         ...state,
-        isLoading: !state.isLoading,
+        isLoading: true,
       };
     case CLEAR_FOLLOW:
       return {
