@@ -322,7 +322,7 @@ button {
     margin: 30px 20px;
   }
 
-  .public_repos p{
+  .public_repos .following {
     margin-bottom: 20px;
   }
 
