@@ -326,6 +326,14 @@ button {
     margin-bottom: 20px;
   }
 
+  .public_repos .repos {
+    margin-bottom: 20px;
+  }
+  
+  .public_repos .gists {
+    margin-bottom: 20px;
+  }
+
   .navbar {
     flex-direction: column;
     padding: 20px 20px;
