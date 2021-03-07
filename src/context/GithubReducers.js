@@ -5,6 +5,9 @@ import {
   CLEAR_USER,
   CLEAR_USERS,
   ISLOADING,
+  SET_FOLLOWING,
+  SET_FOLLOWERS,
+  CLEAR_FOLLOW,
 } from "./Types";
 
 const GithubReducer = (state, action) => {
@@ -18,6 +21,16 @@ const GithubReducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
+      };
+    case SET_FOLLOWING:
+      return {
+        ...state,
+        following: action.payload,
+      };
+    case SET_FOLLOWERS:
+      return {
+        ...state,
+        followers: action.payload,
       };
     case GET_REPOS:
       return {
@@ -38,6 +51,12 @@ const GithubReducer = (state, action) => {
       return {
         ...state,
         isLoading: !state.isLoading,
+      };
+    case CLEAR_FOLLOW:
+      return {
+        ...state,
+        following: [],
+        followers: [],
       };
     default:
       return state;

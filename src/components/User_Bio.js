@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function User_Bio(props) {
   const {
     bio,
+    login,
     company,
     blog,
     html_url,
@@ -24,10 +25,16 @@ export default function User_Bio(props) {
           <span>Company</span>: {company}
         </p>
         <p>
-          <span>Blog</span>: <Link to={{ pathname: blog }} target="_blank">{blog}</Link>
+          <span>Blog</span>:{" "}
+          <Link to={{ pathname: blog }} target="_blank">
+            {blog}
+          </Link>
         </p>
         <p>
-          <span>Github Account</span>: <Link to={{ pathname: html_url }} target="_blank">{html_url}</Link>
+          <span>Github Account</span>:{" "}
+          <Link to={{ pathname: html_url }} target="_blank">
+            {html_url}
+          </Link>
         </p>
         <p>
           <span>Location</span>: {location}
@@ -48,12 +55,16 @@ export default function User_Bio(props) {
           <p className="gists">
             <span>Public_gists</span>: {public_gists}
           </p>
-          <p className="following">
-            <span>following</span>: {following}
-          </p>
-          <p className="followers">
-            <span>followers</span>: {followers}
-          </p>
+          <Link className="following" to={`/user/${login}/following`}>
+            <p>
+              <span>following</span>: {following}
+            </p>
+          </Link>
+          <Link className="followers" to={`/user/${login}/followers`}>
+            <p>
+              <span>followers</span>: {followers}
+            </p>
+          </Link>
         </div>
       </div>
     </div>

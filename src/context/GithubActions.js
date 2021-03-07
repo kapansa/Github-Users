@@ -8,6 +8,9 @@ import {
   CLEAR_USER,
   CLEAR_USERS,
   ISLOADING,
+  SET_FOLLOWING,
+  SET_FOLLOWERS,
+  CLEAR_FOLLOW,
 } from "./Types";
 import axios from "axios";
 
@@ -25,9 +28,11 @@ if (process.env.NODE_ENV !== "production") {
 function GithubProvider(props) {
   const initialState = {
     users: [],
-    user: [],
+    user: {},
     repos: [],
     isLoading: false,
+    following: [],
+    followers: [],
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -60,6 +65,22 @@ function GithubProvider(props) {
     dispatch({ type: GET_REPOS, payload: res.data });
   };
 
+  const SetFollowing = async (login) => {
+    const res = await axios.get(
+      `https://api.github.com/users/${login}/following?client_id=${clientId}&client_secret=${clientSecret}`
+    );
+
+    dispatch({ type: SET_FOLLOWING, payload: res.data });
+  };
+
+  const SetFollowers = async (login) => {
+    const res = await axios.get(
+      `https://api.github.com/users/${login}/followers?client_id=${clientId}&client_secret=${clientSecret}`
+    );
+
+    dispatch({ type: SET_FOLLOWERS, payload: res.data });
+  };
+
   const ClearUser = () => {
     dispatch({ type: CLEAR_USER });
   };
@@ -72,6 +93,10 @@ function GithubProvider(props) {
     dispatch({ type: ISLOADING });
   };
 
+  const ClearFollow = () => {
+    dispatch({ type: CLEAR_FOLLOW });
+  };
+
   return (
     <GithubContext.Provider
       value={{
@@ -79,11 +104,16 @@ function GithubProvider(props) {
         user: state.user,
         repos: state.repos,
         isLoading: state.isLoading,
+        following: state.following,
+        followers: state.followers,
+        SetFollowing,
+        ClearFollow,
         GetUsers,
         GetUser,
         GetRepos,
         ClearUser,
         ClearUsers,
+        SetFollowers,
       }}
     >
       {props.children}
