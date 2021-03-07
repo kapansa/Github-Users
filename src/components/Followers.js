@@ -2,14 +2,16 @@ import React, { useContext, useEffect, Fragment } from "react";
 import User from "./User";
 import GithubContext from "../context/GithubContext";
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 export default function Followers({ match }) {
   const githubContext = useContext(GithubContext);
   const { followers, SetFollowers } = githubContext;
+  const login = match.params.login;
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    SetFollowers(match.params.login);
+    SetFollowers(login);
     //eslint-disable-next-line
   }, []);
 
@@ -19,7 +21,9 @@ export default function Followers({ match }) {
         <Loading />
       ) : (
         <Fragment>
-          <h1 style={{ textAlign: "center" }}>Followers</h1>
+          <h1 className="follow">
+            <Link to={`/user/${login}`}>{login}'s</Link> followers
+          </h1>
           <div className="Home">
             {followers.map((user) => (
               <User

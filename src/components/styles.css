@@ -39,6 +39,17 @@ body {
   color: var(--danger-color);
 }
 
+.follow{
+  text-align: center;
+  font-size: 28px;
+  padding: 30px 0;
+}
+
+.follow a{
+  color:rgb(37, 37, 228);
+  text-decoration: none;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
