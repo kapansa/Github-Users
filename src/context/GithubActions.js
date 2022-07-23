@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== "production") {
   clientSecret = process.env.APP_CLIENT_SECRET;
 }
 
-function GithubProvider(props) {
+function GithubProvider({children}) {
   const initialState = {
     users: [],
     user: {},
@@ -114,7 +114,7 @@ function GithubProvider(props) {
         SetFollowers,
       }}
     >
-      {props.children}
+      {children}
     </GithubContext.Provider>
   );
 }

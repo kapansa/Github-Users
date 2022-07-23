@@ -26,15 +26,15 @@ export default function User_Bio(props) {
         </p>
         <p>
           <span>Blog</span>:{" "}
-          <Link to={{ pathname: blog }} target="_blank">
+          <a href={`${blog}`} target="_blank" rel="noreferrer">
             {blog}
-          </Link>
+          </a>
         </p>
         <p>
           <span>Github Account</span>:{" "}
-          <Link to={{ pathname: html_url }} target="_blank">
+          <a href={`${html_url}`} target="_blank" rel="noreferrer">
             {html_url}
-          </Link>
+          </a>
         </p>
         <p>
           <span>Location</span>: {location}

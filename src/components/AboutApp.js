@@ -19,7 +19,7 @@ export default function AboutApp() {
       </p>
       <p>
         Created by{" "}
-        <Link to={{ pathname: "https://www.kapansa.dev/" }} target="_blank">
+        <Link to={{ pathname: "https://kapansa.github.io/portfolio-website/" }} target="_blank">
           Kapansa
         </Link>
         .
